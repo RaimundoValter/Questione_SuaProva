@@ -62,3 +62,5 @@ P(C|L&D&O) = 0,09375
 P(NC|L&D&O) = P(NC)*P(L|NC)*P(D|NC)*P(O|NC)
 P(NC|L&D&O) = 0,6*0,25*0,41*0,33
 P(NC|L&D&O) = 0,020295
+
+Considerando que a probabilidade de comprar com os atributos selecionados são de 0,09375 e a de não comprar é de 0,020295, há uma maior probabilidade que um novo cliente comprar um produto após visualizar sua pagina.
