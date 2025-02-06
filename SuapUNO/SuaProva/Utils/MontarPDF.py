@@ -1,5 +1,5 @@
 import pytz
-import datetime
+from datetime import datetime
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from textwrap import wrap
@@ -40,7 +40,7 @@ def montar_pdf_correcao(nome_estudante_, perguntas, rubricas, respostas_estudant
     print(f"Atribuído nota {pontuacao_total:.2f} para {nome_estudante_}...")
     
     fuso_sao_paulo = pytz.timezone("America/Sao_Paulo")
-    hora_atual_sp = datetime.datetime.now(fuso_sao_paulo)
+    hora_atual_sp = datetime.now(fuso_sao_paulo)
 
     data_hora = hora_atual_sp.strftime("%Y-%m-%d %Hh%Mm")
     # Nome do arquivo PDF
