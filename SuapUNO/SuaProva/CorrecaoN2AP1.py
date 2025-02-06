@@ -1,6 +1,4 @@
 # Utilizar este arquivo para realização das correções.
-from Utils.Corrigir import corrigir
-from Utils.Llama import llama
 
 diretorio_ap1_n2 = '../../N2-AP1'
 
