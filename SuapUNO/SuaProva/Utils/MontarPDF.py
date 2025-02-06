@@ -2,6 +2,7 @@ import pytz
 import datetime
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
+from reportlab.graphics import renderPS
 from textwrap import wrap
 
 
@@ -48,6 +49,8 @@ def montar_pdf_correcao(nome_estudante_, perguntas, rubricas, respostas_estudant
 
     # Configuração do PDF
     c = canvas.Canvas(nome_arquivo_pdf, pagesize=letter)
+    renderPS.drawToFile(c, 'ifce_logo.png')
+
     c.setFont("Helvetica-Bold", 10)
     largura, altura = letter
     margem = 50  # Margem do documento
