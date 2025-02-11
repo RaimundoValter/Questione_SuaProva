@@ -4,3 +4,5 @@ PyPDF2
 scipy
 numpy
 pytz
+pylatex
+texlive-latex-extra
