@@ -138,7 +138,7 @@ def montar_pdf_latex(nome_aluno, perguntas, rubricas, respostas_estudante, avali
   # Logo à esquerda
   with doc.create(MiniPage(width=NoEscape(r'0.17\textwidth'), pos='t')) as logo_minipage:
     logo_minipage.append(NoEscape(r'\vspace{0.0cm}'))
-    logo_minipage.append(Command('includegraphics', arguments=ifce_logo_path, options=NoEscape(r'width=\linewidth')))
+    logo_minipage.append(Command('includegraphics', arguments=nome_pasta+ifce_logo_path, options=NoEscape(r'width=\linewidth')))
   
   # Texto à direita
   with doc.create(MiniPage(width=NoEscape(r'0.75\textwidth'), pos='t', align='r')) as text_minipage:
