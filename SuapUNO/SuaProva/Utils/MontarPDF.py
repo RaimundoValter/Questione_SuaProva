@@ -104,7 +104,7 @@ def montar_pdf_correcao(nome_estudante_, perguntas, rubricas, respostas_estudant
     return nome_arquivo_pdf
 
 def montar_pdf_latex(nome_aluno, perguntas, rubricas, respostas_estudante, avaliacao_corrigida, pontuacoes_maximas, nome_pasta):
-  ifce_logo_path = "/content/ifce_logo.png"
+  ifce_logo_path = "ifce_logo.png"
   nome_disciplina = "Inteligência Artificial"
   nome_avaliacao = "AP1-N1"
   nome_conteudo = "Métodos Conxionistas: RNN e CNN"
