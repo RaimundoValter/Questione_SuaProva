@@ -5,4 +5,3 @@ scipy
 numpy
 pytz
 pylatex
-texlive-latex-extra

@@ -33,3 +33,5 @@ nome_pasta_teste = "./"
 # Chamar a função e verificar saída
 
 caminho_pdf = montar_pdf_latex(nome_estudante_teste, perguntas_teste, rubricas_teste, respostas_estudante_teste, avaliacao_corrigida_teste, pontuacoes_maximas, nome_pasta_teste)
+
+print(f"Arquivo criado em: {caminho_pdf}")
