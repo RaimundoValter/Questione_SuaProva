@@ -30,8 +30,11 @@ pontuacoes_maximas = [4.0, 5.0]
 
 nome_pasta_teste = "./"
 
-# Chamar a função e verificar saída
+nome_disciplina_teste = "Inteligência Artificial"
+nome_avaliacao_teste = "AP1-N1"
+nome_conteudo_teste = "Métodos Conxionistas: RNN e CNN"
 
-caminho_pdf = montar_pdf_latex(nome_estudante_teste, perguntas_teste, rubricas_teste, respostas_estudante_teste, avaliacao_corrigida_teste, pontuacoes_maximas, nome_pasta_teste)
+# Chamar a função e verificar saída
+caminho_pdf = montar_pdf_latex(nome_disciplina_teste, nome_avaliacao_teste, nome_conteudo_teste, nome_estudante_teste, perguntas_teste, rubricas_teste, respostas_estudante_teste, avaliacao_corrigida_teste, pontuacoes_maximas, nome_pasta_teste)
 
 print(f"Arquivo criado em: {caminho_pdf}")
