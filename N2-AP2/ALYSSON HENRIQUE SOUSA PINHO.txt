@@ -1,0 +1,22 @@
+##<<1>>##
+
+O fenômoneo observado se chama overfitting, ele se caracteriza por um aumento no valor de loss no conjunto de validação enquanto no conjunto de treinamento o valor de loss continua diminuindo, esse fenônomeno implica que o modelo não está aprendendo  o padão do problemas mas sim apenas decorando algum padrão existente dentro do conjunto de treinamento e sendo incapaz de generalizar suas respostas.
+
+##<<2>>##
+
+O momentum é um parâmetro adicionado ao calculo de novos pesos e bias, assim como o momentum da física o objetivo dele é fazer com que  os ajustes da valores de um passo de treinamento tenham um impacto no próximo passo de treinamento, assim a técnica de momentum consegue suavizar as oscilações durante o processo de treinamento e ajudando o modelo a sair de mínimos locais e encontrar melhores mínimos globais, nesse caso especifico ao implementar o momentum a convergência seria mais constante e suave sofrendo menos com uma taxa de aprendizado mal configurada
+
+##<<3>>##
+
+18 atributos 
+Saudavel, pneumonal viral, pneumonal bacterial
+
+Primeiro é necessário realizar um tratamento nos meta-dados das imagens realizando uma normalização nos valores de forma que todos sejam convertidos para valores numéricos, em seguida dividimos 80% dos dados para realizar treinamento e 20% para validação, dos dados de treinamento organizamos em lotes aleatórios contendo 1/10 dos dados, cada lote é inserido na camada de entrada da rede neural que segue a seguinte arquitetura,
+
+18 atributos -> [camada de entrada ReLU 10 neurónios] -> [camada oculta ReLU, 10% dropout, 20 neurónios] -> [camada oculta ReLU, 40 neurónios] -> [camada oculta ReLU, 10% dropout, 20 neurónios] -> [camada de saida SoftMAX 3 neurónios]
+
+Nessa arquitetura utilizei 5 camadas variando entre as funções de ativação ReLU usada para evitar que existam valores menores que 0 mas sem limitação de valores acima e SoftMAX  para que os valores da camada de saída sejam tratados como percentagem, a entrada com 10 neurónios onde cada um irá receber 18 atributos do conjunto em seguida os dados são enviados para as camadas ocultas  que possuem mais neurónios para o processamento dos dados, duas dessas camadas possuem dropout para evitar que aconteça overfitting, o modelo será treinado por épocas enquanto o valor de loss do conjunto de validação convergir com o valor de loss do conjunto de treinamento caso os valores comecem a divergir realizar early stop. Considerando um modelo com 85% ou mais de prescisão será desenvolvida uma aplicação web em que um médico do consultório pode fazer upload dos dados do paciente e gerar uma avaliação que ajudará no diagnostico do paciente. 
+ 
+##<<4>>##
+
+O dropout faz com que durante o processo de backpropagation alguns neurónios não tenham valores de bias ou pesos alterados, essa mudança introduz variações dentro das camadas do modelo que impedem ou dificultam com que algum padrão existente dentro do conjunto de treinamento seja aprendido pelo modelo. 
