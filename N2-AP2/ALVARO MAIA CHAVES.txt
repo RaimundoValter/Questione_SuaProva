@@ -1,0 +1,24 @@
+##<<1>>##
+O fenomeno observado se chama overfiting, que ocorre quando o loss do conjunto de validação começa a aumentar acima do loss do conjunto de treinamento. Tal fenomeno pode causar problemas de generalização no modelo em geral, ou seja o modelo ira ter dificiuldade em classificar novos dados alem dos usados no conjunto de treinamento. Uma das formas de se remediar isso é o uso do "early stop" que para o treinamento do modelo antes da quantidade total de epocas, quando os loss de treinamento e validação começam a se separar.
+
+##<<2>>##
+O momento ajuda a quantificar as diferenças entre os pesos e vieses anteriores com os novos, ajudando assim a estabilizar ocilações muito altas no loss no treinamento de algo instavel para algo mais estavel. Tudo isso usando a formula p(t+1)= p(t) + n*E*(y-ypredito) + a(p(t)+p(t-1)).
+
+##<<3>>##
+1. Primeiro criaremos nossa rede neural:
+Camada de Entrada: 18 neuronios fully connected com função de ativação rELU (18 neuronios pois possuem apenas 18 atributos no total);
+Camada oculta 1: 90 neuronios fully connected com camada de ativação rELU e com dropout de 20%;
+Camada oculta 2: 90 neuronios fully connected com camada de ativação rELU e com dropout de 20%;
+Camada de saida: 3 neuronios com camada de ativação softMAX;
+
+Usamos duas camadas ocultas para ter mais precisão na hora de dar um diagnostico devido a seriedade do cenario.
+
+2. Primeiro normalizaremos o dataset para ter o uma parcela de dados concisa, depois dividiremos 80/20 sendo em 80% do dataset para o conjunto de testes de maneira aletaoria mantendo os dados balanceados entre os atributos. E os restantes 20% para validação.
+
+3. Treinaremos em 200 epocas (considerando a seriedade do cenario), com lotes de 5 amotras a cada passo de treinamento e com uma taxa de aprendizado baixa. Tambem usaremos a estrategia early stop caso o loss de validação começe a aumentar acima do loss de treino.
+
+4. Considerando uma epidemia de pneumonia um medico tem que entregar 20 diagnosticos para pacientes rapidamente para abrir mais espaço na ala medica do hospital, com esta rede neural apos seu treinamento e validação essa tarefa se torna mais rapida agilizando o combate a crise de pneumonia.
+
+
+##<<4>>##
+Dropout é a forma de como podemos remediar o overfiting em um modelo de rede neural. Primeiro o dropout funciona "desligando" um ou mais neuronios aleatorios a cada passo de treinamento(feed-foward;BackPropagation). Segundamente para determinar quantos neuronios serão "desligados" escolhesse um numero como exemplo 0.15 ou ate 50%, para usar como base na hora de escolher quantos neuronios serão afetados. Assim o dropout ajuda a evitar que no treinamento o modelo use apenas neuronios especificos forçando no treinamento a alternação de neuronios, evitando assim o overfiting e melhorando a capacidade de generalizar novos dados.

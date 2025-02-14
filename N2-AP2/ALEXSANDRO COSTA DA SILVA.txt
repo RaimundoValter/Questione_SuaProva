@@ -1,0 +1,8 @@
+﻿##<<1>>##
+O fenômeno observado pode estar acontecendo por alguns motivos. Um deles é a quantidade de dados para treino que pode ser insuficiente ou menos adequada para o treinamento, como a qualidade sendo baixa ou não apresentar características suficiente para que a rede neural consiga resultados bons no treinamento, isso tudo causa essas perdas significantes.
+##<<2>>##
+Com o calculo feito ao utilizar o momento, os valores resultantes sofrem uma alteração para que a taxa de aprendizado não tenha tanta influencia em fazer que a convergência ocorra de forma muito lenta e sim otimizando para que ocorra de forma mais rápida. 
+##<<3>>##
+A arquitetura da rede será uma simple perceptron, formada com 19 entradas uma para cada atributo e uma para a imagem, com 100 neurônios com treinamento ReLU e 3 saídas uma para cada categoria (saudável, pneumonia e pneumonia bacteriana) com softmax e também será aplicado o early stop para evitar overfitting. As imagens e as informações clinicas deverão ser organizados em tabelas sendo as colunas os atributos e a imagem. Do conjunto de dados para o treinamento será utilizado 80% e os 20% para validação. O exemplo de aplicação seria em um exame médico em que o medico faria o diagnostico de um paciente e passaria quais dos atributos o paciente possui junto com a imagem, logo após o modelo processaria esses dados e retornaria em qual das categorias o paciente se encaixa de acordo com o dados do diagnostico.
+##<<4>>##
+O dropout funciona desativando aleatoriamente neurônios durante o treinamento para analisar com qual neurônio desativado há uma melhora no resultado ou a piora dele, encontrado o que piora o desempenho no conjunto de teste e com isso melhorando a capacidade de generalização do modelo.

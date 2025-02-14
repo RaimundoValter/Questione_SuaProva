@@ -1,8 +1,8 @@
-﻿##«1»##
+﻿##<<1>>##
 A rede neural dessa startup está sofrendo de overfitting, onde os dados de treinamento estão se tornando muito aptos a resolver apenas um problema muito especifico, não ganhando capacidade de trabalhar com outros dados fora de seu treinamento de forma razoável, ou seja: Não consegue generalizar. Se não aplicarem algum método para reduzir este efeito como o dropout (desligar neurônios de forma aleatória durante o treino baseado numa taxa predefinida), esse modelo ao longo do tempo se tornará cada vez mais especializado a resolver somente os seus dados de treinamento, se tornando inútil para o uso real.
-##«2»##
+##<<2>>##
 O momento serve como uma espécie de memória dos resultados anteriores do modelo, ele influencia o treinamento por induzir os resultados a serem mais próximos de seus antecessores, impedindo assim mudanças repentinas de resultados que atrapalham o treinamento e convergência. Neste caso, ele ajudará o modelo a convergir sem que seja necessário diminuir tanto a taxa de aprendizado de uma forma tão agressiva, limitando os resultados à um espaço próximo de seus resultados anteriores.
-##«3»##
+##<<3>>##
 A rede neural deverá ter um número apropriado de camadas e neurônios que serão definidos com mais precisão com acesso completo aos metadados. A função de ativação será a ReLU por sua simplicidade (onde qualquer valor negativo se torna 0, e os demais são inseridos normalmente), fazendo uso do backpropagation para reduzir o loss. Para evitar o overfitting faremos o uso do dropout em uma taxa de 30% e do earlystop para impedir situações indesejadas. Para termos uma taxa de aprendizado boa, usaremos também do momento para que o treinamento seja ágil mas não tenda a resultados com picos discrepantes.
 
 Todos os dados que não são imagens serão valorados e pesados (seguindo padrões e opiniões medicas sobre quais indicadores são mais importantes no diagnostico) para a melhor compreensão pelo sistema. As imagens serão simplificadas, padronizadas e tornadas em matrizes para que sejam melhor processadas pelo sistema.
@@ -10,5 +10,5 @@ Todos os dados que não são imagens serão valorados e pesados (seguindo padrõ
 Metade dos dados serão reservados para o treinamento da rede neural, os demais servirão de validação para garantir que a rede neural consegue generalizar para dados fora do seu conjunto de treino.
 
 Esse modelo poderia em tese ser utilizado em diagnósticos para qualquer área onde temos dados relevantes no formato de metadados e imagens. Diagnostico de outras doenças como câncer onde imagens são frequentemente usadas para a detecção poderia ser uma ótima aplicação para este modelo com alguns reajustes.
-##«4»##
+##<<4>>##
 O dropout desativa neurônios de forma aleatória ao longo dos processos de fowardpropagation e backpropagation baseado numa taxa escolhida pelos cientistas. Efetivamente, o beneficio de utilizar esse método é a utilização mais abrangente de todos os neurônios da rede neural, impedindo que o sistema crie uma dependência de apenas alguns poucos neurônios que respondem muito bem ao treinamento, mas podem se mostrar limitados quando tentam generalizar (Overfitting).
