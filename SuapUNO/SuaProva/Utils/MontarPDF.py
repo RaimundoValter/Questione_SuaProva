@@ -103,12 +103,9 @@ def montar_pdf_correcao(nome_estudante_, perguntas, rubricas, respostas_estudant
     print(f"Correção gravada em: {nome_arquivo_pdf}")
     return nome_arquivo_pdf
 
-def montar_pdf_latex(nome_aluno, perguntas, rubricas, respostas_estudante, avaliacao_corrigida, pontuacoes_maximas, nome_pasta):
-  ifce_logo_path = "ifce_logo.png"
-  nome_disciplina = "Inteligência Artificial"
-  nome_avaliacao = "AP1-N1"
-  nome_conteudo = "Métodos Conxionistas: RNN e CNN"
-
+def montar_pdf_latex(nome_disciplina, nome_avaliacao, nome_conteudo, nome_aluno, perguntas, rubricas, respostas_estudante, avaliacao_corrigida, pontuacoes_maximas, nome_pasta):
+  ifce_logo_path = os.getcwd() + "/content/ifce_logo.png"
+  
   # Validação das listas
   if not (len(perguntas) == len(rubricas) == len(respostas_estudante) == len(avaliacao_corrigida) == len(pontuacoes_maximas)):
     raise ValueError("As listas de perguntas, rubricas, respostas e avaliações devem ter o mesmo tamanho.")
@@ -138,7 +135,7 @@ def montar_pdf_latex(nome_aluno, perguntas, rubricas, respostas_estudante, avali
   # Logo à esquerda
   with doc.create(MiniPage(width=NoEscape(r'0.17\textwidth'), pos='t')) as logo_minipage:
     logo_minipage.append(NoEscape(r'\vspace{0.0cm}'))
-    logo_minipage.append(Command('includegraphics', arguments=nome_pasta+ifce_logo_path, options=NoEscape(r'width=\linewidth')))
+    logo_minipage.append(Command('includegraphics', arguments=ifce_logo_path, options=NoEscape(r'width=\linewidth')))
   
   # Texto à direita
   with doc.create(MiniPage(width=NoEscape(r'0.75\textwidth'), pos='t', align='r')) as text_minipage:
