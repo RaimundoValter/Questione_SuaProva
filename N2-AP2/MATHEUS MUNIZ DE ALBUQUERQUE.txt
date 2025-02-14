@@ -1,0 +1,27 @@
+##<<1>>##
+Esse fenomeno se chama OVERFITTING, que significa o sobreajuste do modelo aos dados de treinamento, 
+ou seja, o modelo está decorando padrões dos dados e não consegue generalizar o aprendizado em dados diferentes! 
+Podendo ser observado pelo grafico de loss, que mostra essa grande diferença da perda entre os dados utilizados 
+para o treinamento e os dados utilizados para a validação.
+
+##<<2>>##
+Um termo de momento, influencia de forma direta pois de certa forma evita a grande oscilação e ajuda a encontrar a taxa de
+aprendiado adequada para o modelo convergir corrretamente durante o treinamento, ajustando os pesos e os bias de forma mais consistente. 
+
+##<<3>>##
+Para que a rede neural artificial seja capa de classificar os pacientes, vou usar um algoritmo de deep learning onde teremos
+"n" camadas, com "n" neuroniôs cada camada, utilizando a função de ativação ReLU(onde a saida negativa será = 0 e a possitiva sera ela mesma),
+e para evitar sobreajustes irei aplicar a tecnica earlystoping -> para o modelo apos analisar um possivel overfitting.
+
+Para o pré-processamento, iremos separar o conjunto de dados em subconjuntos, onde pela analise da matriz de coorelação saberemos quais estão correlacionados entre si, 
+logo aplicar convolução, a imagem será representada por uma matriz, aplicaremos filtros e terá como saida um mapa de caracteristicas.
+
+O treinamento proposto será pegar 20% dos dados para testes 80% para treinamento, utilizando sempre o backpropagation, para otimizar o grafico de loss, atualizando os pesos e bias para que 
+a saida fique o mais proximo do esperado. Para a validação, um conjunto de dados nunca vistos, para analisar a taxa de acerto do modelo!
+
+Um exemplo de aplicação, logo após a validação do modelo, colocar em funcionamento na clinica para aplicar novos conjuntos de dados nunca vistos, onde terá como saida o diagnóstico
+da doença pulmonar(pneumonia viral ou bacteriana).    
+
+##<<4>>##
+O dropout é uma tecnica que busca evitar o sobreajuste do modelo aos dados de treinamento, ele funciona desativado uma porcentagem de 
+neuronios, onde força que a cada época o modelo tenda a convergir de forma adequada melhorando assim a capacidade de generalização, mitigando o overfitting. 

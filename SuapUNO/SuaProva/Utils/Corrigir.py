@@ -98,9 +98,9 @@ Retorne a resposta estritamente em formato de dicionário Python (chaves em form
       else:
         print(f"Finalizado a avaliação de {nome_estudante}!")
 
-    pprint(avaliacao_corrigida)
-
-    # Ao finalizar uma correção completa, grava o resultado em pdf para aquele estudante.
-    montar_pdf_correcao(nome_estudante, questoes, rubricas, respostas, avaliacao_corrigida, nome_pasta+"/correções")
-
+    try: 
+      # Ao finalizar uma correção completa, grava o resultado em pdf para aquele estudante.
+      montar_pdf_correcao(nome_estudante, questoes, rubricas, respostas, avaliacao_corrigida, nome_pasta+"/correções")
+    except:
+      pprint(avaliacao_corrigida)
     # pprint(avaliacao_corrigida)

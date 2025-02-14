@@ -1,0 +1,24 @@
+##<<1>>##
+
+O fenômeno observado, loss alto em validação e baixo em treinamento após algumas épocas, é caracterizado como overfitting, que é o sobreajuste do modelo ao conjunto de treinamento. O overfitting impacta o modelo final ao indicar que o modelo “decorou” os dados de treinamento, dessa maneira, não tendo uma boa generalização do modelo. 
+
+##<<2>>##
+
+O termo de momento é utilizado por otimizadores, o momento influencia nos o ajustes dos pesos e dos bias, buscando otimizar esse ajuste durante o treinamento da rede neural e auxiliar o modelo a não ficar preso em mínimos locais. Na situação apresentada na questão, o momento ajudaria o modelo a convergir para um bom loss, em um tempo menor.  
+
+##<<3>>##
+
+Arquitetura da rede: Utilizando uma MLP, com 18 neurônios na camada entrada (Função de ativação RELU) e 3 neurônios na camada saída (Função de ativação Softmax) , 4 camadas ocultas com 30 neurônios cada (Função de ativação RELU).
+Escolha da RELU: evitar a linearidade
+SoftMax: Os valores de saída da última camada ficariam entre 0 e 1, podendo ser interpretados como porcentagem. 
+Estratégias para evitar overfitting: Utilização de dropout de 20% nas camadas ocultas.
+
+Pré-processamento: Os dados seriam padronizados e normalizados. Os dados categóricos devem ser transformados em dados númericos, utilizando a codificação decimal por exemplo. 
+
+Treinamento e avaliação: O conjunto de dados seria divido em 80% em treino 20% em teste/validação, considerando um balanceamento das amostras. Para o treino o subconjunto seria separado em lotes, e seria realizado o feedforward, agregando o erro para aquele lote em seguida realizando backpropagation (ajustando os pesos e os bias), configurando-se um passo de treinamento, esse processo seria repetido. Quando todas as amostras de treino tiverem passado ao menos uma vez pelo conjunto, seria configurado uma época. Esse processo seria repetido até haver uma convergência da função loss de treino com o loss de validação. Dado que ao realizar o processo de teste, o modelo apresentou acurácia de 90%, o modelo seria avaliado com ótimo e utilizado em produção.
+
+Exemplo de aplicação: Os médicos de um hospital passariam como entrada para o sistema com a rede neural as informações clínicas dos pacientes, e seria retornada a classificação daquele determinado paciente: saudável, pneumonia viral ou pneumonia. 
+
+##<<4>>##
+
+Dropout é uma técnica utilizada no treinamento de redes neurais que tem como objetivo mitigar o overfitting de um modelo, onde a cada iteração de treinamento neurônios aleatórios são desativados. O desativamento aleatório de alguns neurônios faz com eles não se tornem excessivamente importantes, fazendo com que o modelo não dependa de neurônios específicos. Dessa maneira, a cada iteração há uma “rede neural com neurônios diferentes” o que melhora a generalização do modelo e diminui o overfitting.  
