@@ -4,6 +4,7 @@ from .MontarPDF import montar_pdf_correcao
 from .AvaliarResposta import avaliar_resposta
 from .ExtrairDicionário import extrair_dicionario
 from .EscolheMelhor import escolhe_melhor
+from pprint import pprint
 
 def corrigir(nome_pasta, gabarito_avaliacao, REPETIR_CORRECAO = 3, alunos = []):
   questoes = gabarito_avaliacao[0]
