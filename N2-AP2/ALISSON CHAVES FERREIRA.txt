@@ -1,0 +1,40 @@
+﻿##<<1>>##
+
+É notável que para esse fenômeno da Startup do Vale do Jaguaribe há um notável problema de overfitting que faz com que no conjunto de treinamento haja uma redução no loss, ou seja, na sua função de perda, mas os resultados na validação começam a aumentar após algumas épocas. Isso indica que não estão sendo aprendidos padrões dos dados, mas sim, na verdade, memorizando-os. O que, para um algoritmo de deep learning (aprendizado profundo) é inviável e muito prejudicial. 
+Os impactos que essas variações nas funções de perda podem causar são alguns, como o não reconhecimento de novos dados que nunca passaram antes pelo modelo, ficando apenas restrito aqueles dados que inicialmente foram usados durante o treinamento. A impossibilidade do modelo que aprendeu a lembrar dos dados conseguir entender quais realmente são os padrões que cada banda (R, G, B e NIR) guardam para realizar a segmentação dos viveiros de camarão e, ao invés de aprender seus padrões. Também temos como problema o modelo não conseguir generalizar de forma fiel ao passo de garantir que os dados usados no treinamento foram úteis e seus resultados mantém uma boa acurácia.
+
+
+##<<2>>##
+
+A utilização do termo de momento (momentum) ao otimizador para ajudar na convergência da rede indica que o pesquisador precisa estabelecer um critério de controle da função de perda durante o treinamento, para que os dados possam convergir de forma correta. Esse controle é definido ao final de cada passo de treinamento quando os novos pesos e bias são calculados (backpropagation).  O momento influencia no treinamento controlando a função para que haja um controle na função de perda e uma taxa de aprendizado onde não ocorram anomalias, principalmente tentando evitar o overfitting que é a memorização dos dados pelo modelo.
+
+##<<3>>##
+
+Para montar uma rede neural capaz de classificar os pacientes em 3 categorias com base em diagnósticos de doenças pulmonares vamos montar:
+
+Arquitetura da rede: 
+As camadas que a rede irá possuir, são:
+
+Entrada: irá receber os dados da clínica que são os metadados de imagens de informações da clínica de paciente.
+Camada de convolução
+Camada oculta (hidden layer) – 20 neurônios 
+Camada oculta (hidden layer) – 30 neurônios com dropout (desligamento de neurônios).
+
+Função de ativação ReLU (garantir que não haja valores negativos).
+
+Camada de saída: garantir que os dados que saiam sejam as 3 categorias definidas inicialmente: saudável, pneumonia viral e pneumonia bacteriana.
+Também será usado estratégias como o momento (momentum) para garantir que haja uma convergência adequada para evitar o overfitting e que o modelo generalize bem.
+
+Pré-processamento: 
+Os metadados das imagens são processados e é passado um filtro que é definido pela própria rede por toda a imagem extraindo as suas características mais relevantes para o modelo, essa características são extraídas ao filtro passar por toda a imagem com base no stride e padding da imagem garantindo que o feature map seja montado.
+
+Treinamento e avaliação:
+O treinamento será feito com base na divisão do conjunto de dados, utilizando um holdout 80/20 onde 80% dos dados vão para treinamento e 20% validação. O modelo será validado com base em análise na função de perda e se não está acontecendo o underfitting onde o modelo não consegue se adaptar aos dados ou overfitting onde ele não generaliza bem, mas sim apenas lembra do treinamento.
+
+Exemplo de aplicação:
+Um cenário prático onde o modelo seria utilizado seria onde a clínica recebe valores de outras doenças e pode assimilar quais doenças são essas.
+
+##<<4>>##
+
+O dropout funciona desligando uma proporção de neurônios aleatórios de uma camada definida pela arquitetura da rede neural. Esse desligamento garante a melhor generalização do modelo e faz com que o calculo dos novos pesos e bias sejam ajustados consistentemente e garantindo a melhor adaptabilidade dos dados de treinamento.
+

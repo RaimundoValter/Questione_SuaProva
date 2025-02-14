@@ -1,0 +1,16 @@
+##<<1>>##
+
+O fenômeno observado foi o overfitting, ou seja, o modelo estava decorando os dados de treinamento e quando passamos esse modelo para os dados de validação ele não consegue classificar corretamente
+
+##<<2>>##
+
+Ele funciona como memoria para o gradiente passado, acumulando informação das atualizações. O momento permite uma convêgencia mais eficiente
+
+##<<3>>##
+
+Utilizarei o arquitetura CNN, as camadas de entrada (que receberão o conjunto de dados), a camada intermediaria ou oculta (onde sera aplicado o dropout e função de ativação ReLU), camada de convulação(para tratar as imagens) e a cada de saida(aqui usaremos backpropagation). Usarei respectivamente 18, 20, 3, 3 neurônios e a estrategia para lidar com overfitting sera o dropout.  As imagens passarão para a camada de convulação onde sera acentuada as caracteristicas da imagem e na camada de pooling, onde sera reduzida a imagem mas matendo o maximo de informação possível, podemos usar a função max pooling. E isso é importante para otimização do algoritmo. Os dados em texto podem passar pela função de ativação tranquilamente sendo tratado por ela. E obviamente, com a função de dropout para evitar o overfitting. vou utilizar 70% treinar, 20% avaliar e 10% teste. Ao ser passada os metadados sobre um paciente na camada de entrada, os neurônios na camada intermediaria com a função de ativação irão classificar o paciente, o que for imagem vai passar pela camada de convulação, onde tera que passar pela função de ativação e pela camada de pooling, e o que for texto passara pelas funções de ativação reLU e aplicando dropout nas camadas intermediarias, ao chegar na camada de saida, o backpropagation verifica a erro e se for classificado erroneamente, volta.
+
+
+##<<4>>##
+
+pode ser que seu algoritmo esteja com um problema onde ele decora os dados ao invés de aprendê-lo, ou overfitting, e dropout é uma das técnicas que utilizamos para evitar  que isso aconteça, pois consistem em “sumir” com uma porcentagem dos neurônios fazendo com que o algoritmo realmente tenha que aprender. 
